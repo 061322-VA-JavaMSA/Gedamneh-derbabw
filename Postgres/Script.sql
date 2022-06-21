@@ -19,12 +19,14 @@ create table SalesofficeAdress(
  zip    int  ,
  Empid  int 
  
- --CONSTRAINT  fk_Empid  FOREIGN KEY(Empid) REFERENCES Employee(Employeeid)
+ CONSTRAINT  fk_Empid  FOREIGN KEY(Empid) REFERENCES Employee(Employeeid)
 
 
 
 
 );
+
+update table salesofficeadress add  CONSTRAINT  fk_Empid  FOREIGN KEY(Empid) REFERENCES Employee(Employeeid);
 
 create table Customer(
 customerid  serial,
