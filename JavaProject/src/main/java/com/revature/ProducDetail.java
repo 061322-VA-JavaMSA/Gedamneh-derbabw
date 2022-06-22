@@ -48,4 +48,24 @@ public class ProducDetail {
 		
 	}
 
+public int getProdID() {
+	// TODO Auto-generated method stub
+	return 0;
+}
+
+public int getProductPrice() {
+	// TODO Auto-generated method stub
+	return 0;
+}
+
+public int getpCatagory() {
+	// TODO Auto-generated method stub
+	return 0;
+}
+
+public int getInventory() {
+	// TODO Auto-generated method stub
+	return 0;
+}
+
 }
