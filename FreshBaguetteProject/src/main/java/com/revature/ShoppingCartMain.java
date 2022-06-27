@@ -219,12 +219,12 @@ public class ShoppingCartMain {
 		
 		 public static  void showProduct() {
 			 //List<Product> product = ps.getProduct();
-		      System.out.printf("%-8s%-15s%-8s%-12s%-8s%-12s","Prodid","ProductName","Price","Catagory","salesqty","inventoryqty");
+		      System.out.printf("%-8s%-15s%-8s%-12s%-8s","Prodid","ProductName","Price","Catagory","inventoryqty");
 		    //ProducDetail[] ProductList = null;
 		      System.out.println();
 		      System.out.println("------------------------------------------------------");
 			for(Product P :ProductDetail.ProductList ) {
-	System.out.printf("%-8s%-15s%-8s%-12s%-8s%-12s",P.getProdid(),P.getProdname(),"$"+P.getPrice(),P.getCatagory(),P.getsalesqty(),P.getInventoryQty());
+	System.out.printf("%-8s%-15s%-8d%-12d%-8s",P.getProdid(),P.getProdname(),"$"+P.getPrice(),P.getCatagory(),P.getInventoryQty());
 	System.out.println();
 		    }
 
