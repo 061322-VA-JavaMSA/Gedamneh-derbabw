@@ -3,11 +3,19 @@ package com.revature;
 import java.util.Objects;
 
 public class Customer {
-	public String getCustid() {
+	 private int  custid;
+	 private String  firstName;
+     private String  lastName;
+     private String  emailId;
+     private String  password;
+     private long phoneNo;
+	
+	
+	public int getCustid() {
 		return custid;
 	}
-	public void setCustid(String custid) {
-		this.custid = custid;
+	public void setCustid(int customerid) {
+		this.custid = customerid;
 	}
 	public String getProdid() {
 		return prodid;
@@ -47,14 +55,14 @@ public class Customer {
 	public String toString() {
 		return "Customer [custid=" + custid + ", prodid=" + prodid + ", price=" + price + ", Qty=" + Qty + "]";
 	}
-	public Customer(String custid, String prodid, int price, int qty) {
+	public Customer(int custid, String prodid, int price, int qty) {
 		super();
 		this.custid = custid;
 		this.prodid = prodid;
 		this.price = price;
 		Qty = qty;
 	}
-	private String custid;
+	
 	private String prodid;
 	private int price;
 	private int Qty;
@@ -65,6 +73,52 @@ public class Customer {
 	public String getcustid() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	public void setCustomername(String firstname2) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void setLastname(String lastname2) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void setEmailid(String emailid2) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void setPassword(Object phoneno2) {
+		// TODO Auto-generated method stub
+		
+	}
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	public String getEmailId() {
+		return emailId;
+	}
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public long getPhoneNo() {
+		return phoneNo;
+	}
+	public void setPhoneNo(long phoneNo) {
+		this.phoneNo = phoneNo;
 	}
 	
 	

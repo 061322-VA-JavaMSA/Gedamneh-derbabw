@@ -3,6 +3,8 @@ package com.revature;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.revature.models.Product;
+import com.revature.ProductDetail;
 public class Cartutility {
 
 	 
@@ -22,7 +24,7 @@ public class Cartutility {
 	}
 
 
-}
+
 	if(temp==null) {
 	cartList.add(cart);
 	System.out.println("....Product added to Cart....");
@@ -35,9 +37,9 @@ public class Cartutility {
 	}
 	
 	//Decrease the inventory
-	Product p = ProducDetail.findProduct(cart.getProdid());
-		p.setQty( p.getQty() -  cart.getQty());	
+	Product p = ProductDetail.findProduct(cart.getProdid());
+		p.setInventoryQty( p.getInventoryQty() - cart.getQty());	
 	}
 	
 }
-	
+}	

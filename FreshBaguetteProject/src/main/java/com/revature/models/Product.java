@@ -1,14 +1,16 @@
-package com.revature;
+package com.revature.models;
 
 import java.util.Objects;
 
 public class Product {
 	
-	private String prodid;
+	private static final String Qty = null;
+	private int prodid;
 	private String prodname;
 	private String catagory;
 	private int price;
-	private int Qty;
+	private int inventoryqty;
+	private int salesqty;
 	//public Product(String string, String string2, String string3, int i, int j) {
 		// TODO Auto-generated constructor stub
 	
@@ -16,21 +18,25 @@ public class Product {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Product(String prodid, String prodname, String catagory, int price, int qty) {
+	public Product(int prodid, String prodname, String catagory, int price, int salesqty , int inventoryqty) {
 		super();
 		this.prodid = prodid;
 		this.prodname = prodname;
 		this.catagory = catagory;
 		this.price = price;
-		Qty = qty;
+		this.inventoryqty = inventoryqty;
+		this.salesqty=salesqty;
+	}
+	public Product(String string, String string2, String string3, int i, int j) {
+		// TODO Auto-generated constructor stub
 	}
 	//public void Product(String string, String string2, String string3, int i, int j) {
 		// TODO Auto-generated constructor stub
 	//}
-	public String getProdid() {
+	public int getProdid() {
 		return prodid;
 	}
-	public void setProdid(String prodid) {
+	public void setProdid(int prodid) {
 		this.prodid = prodid;
 	}
 	public String getProdname() {
@@ -51,19 +57,34 @@ public class Product {
 	public void setPrice(int price) {
 		this.price = price;
 	}
-	public int getQty() {
-		return Qty;
+	public int getsalesqty() {
+		return salesqty;
 	}
-	public void setQty(int qty) {
-		Qty = qty;
+	public void setSalesQty(int salesqty) {
+	this.salesqty = salesqty;
 	}
+	public void setInventoryQty(int inventoryqty) {
+		this.inventoryqty = inventoryqty;
+		}
+	public String getProductPrice() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+   public int getInventoryQty() {
+
+	return this.inventoryqty;
+     }
+   
+
+	
 	@Override
 	public String toString() {
-		return "Product [prodid=" + prodid + ", prodname=" + prodname + ", price=" + price + ", Qty=" + Qty + "]";
+		return "Product [prodid=" + prodid + ", prodname=" + prodname + ", price=" + price + ", Qty=" + inventoryqty + "]";
 	}
 	@Override
 	public int hashCode() {
-		return Objects.hash(Qty, price, prodid, prodname);
+		return Objects.hash(inventoryqty, price, prodid, prodname);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -77,28 +98,14 @@ public class Product {
 		return Qty == other.Qty && price == other.price && Objects.equals(prodid, other.prodid)
 				&& Objects.equals(prodname, other.prodname);
 	}
-	public String getProdID() {
+	public Object getProdID() {
 		// TODO Auto-generated method stub
-		return prodid;
-	}
-	public String getpCatagory() {
-		// TODO Auto-generated method stub
-		return catagory;
-	}
-	public String getInventory() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	public String getProductPrice() {
-		// TODO Auto-generated method stub
-		return null;
+		return prodid ;
 	}
 	
 	
 	
 	
-	
-	
-
 
 }
+

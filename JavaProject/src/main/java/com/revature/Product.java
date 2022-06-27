@@ -55,6 +55,10 @@ public class Product {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	public String getProductPrice() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 	
