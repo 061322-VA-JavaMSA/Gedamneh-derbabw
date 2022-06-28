@@ -4,14 +4,14 @@ import java.util.Objects;
 
 public class Cart {
 	
-	private String custid;
+	private int custid;
 	private String prodid;
 	private int price;
 	private int qty;
-	public String getCustid() {
+	public int getCustid() {
 		return custid;
 	}
-	public void setCustid(String custid) {
+	public void setCustid(int custid) {
 		this.custid = custid;
 	}
 	public String getProdid() {

@@ -16,7 +16,7 @@ public  class UserPostgres implements UserDAO, CustomerDAO{
 
 	@Override
 	public User createUser(User u) {
-		String sql = "insert into users (username, password) values (?,?) returning id;";
+		String sql = "insert into users (username,password) values (?,?) returning id;";
 		try(Connection c = ConnectionUtil.getConnectionFromEnv()){
 			PreparedStatement ps = c.prepareStatement(sql);
 			ps.setString(1, u.getUsername());
@@ -37,7 +37,8 @@ public  class UserPostgres implements UserDAO, CustomerDAO{
 
 	@Override
 	public User retrieveUserById(int id) {
-		String sql = "select * from users where id = ?;";
+		//String sql = "select * from users where id = ?;";
+		String sql = "select * from users where id=?;";	
 		User user = null;
 		
 		try(Connection c = ConnectionUtil.getConnectionFromEnv()){
@@ -177,6 +178,30 @@ public  class UserPostgres implements UserDAO, CustomerDAO{
 	public User createCustomer(User u) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public Customer retrieveCustomerById(int custid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Customer retriveCustomerbyLName(String Lastname) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean updateCusomer(Customer c) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean deleteCustomerById(int custid) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }

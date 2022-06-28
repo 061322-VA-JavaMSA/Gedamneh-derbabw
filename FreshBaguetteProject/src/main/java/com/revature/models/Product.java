@@ -66,7 +66,7 @@ public class Product {
 	public void setInventoryQty(int inventoryqty) {
 		this.inventoryqty = inventoryqty;
 		}
-	public String getProductPrice() {
+	public int getProductPrice() {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -78,10 +78,13 @@ public class Product {
    
 
 	
-	@Override
-	public String toString() {
-		return "Product [prodid=" + prodid + ", prodname=" + prodname + ", price=" + price + ", Qty=" + inventoryqty + "]";
-	}
+
+
+   @Override
+   public String toString() {
+	   return "Product [prodid=" + prodid + ", prodname=" + prodname + ", catagory=" + catagory + ", price=" + price
+			   + ", inventoryqty=" + inventoryqty + ", salesqty=" + salesqty + "]";
+   }
 	@Override
 	public int hashCode() {
 		return Objects.hash(inventoryqty, price, prodid, prodname);
@@ -98,9 +101,21 @@ public class Product {
 		return Qty == other.Qty && price == other.price && Objects.equals(prodid, other.prodid)
 				&& Objects.equals(prodname, other.prodname);
 	}
-	public Object getProdID() {
+	public int getProdID() {
 		// TODO Auto-generated method stub
 		return prodid ;
+	}
+	public void setPassword(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void setSalesQty(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void setInventoryQty(String string) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

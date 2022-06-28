@@ -26,8 +26,7 @@ public static List<Product>  ProductList= new ArrayList<>();
 	 * @param prodID
 	 * @return
 	 */
-
-	public static String getProductName(String prodID) {
+public static String getProductName( String prodID) {
 		
 		String proName=" ";
 		for(Product p: ProductList) {
@@ -62,7 +61,7 @@ public static List<Product>  ProductList= new ArrayList<>();
 	  Product temp=null;
 	  for(Product p : ProductList) {
 	  
-		if(p.getProdID().equals(prodid)) {
+		if(p.getProdid().equals(prodid)) {
 	  temp=p;
 	  break;
 	   }

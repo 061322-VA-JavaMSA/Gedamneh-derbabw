@@ -2,9 +2,6 @@ package com.revature;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import com.revature.models.Product;
-import com.revature.ProductDetail;
 public class Cartutility {
 
 	 
@@ -16,16 +13,16 @@ public class Cartutility {
 	for(Cart c : cartList) {
 	
 	index++;
-	if(c.getCustid().equals(cart.getCustid())&& c.getProdid().equals(cart.getProdid())) {
-	temp = c;
+	if( c.getProdid().equals(cart.getProdid())) {
+		
+		
+		temp = c;
 	break;
 	
 	
 	}
 
-
-
-	if(temp==null) {
+if(temp==null) {
 	cartList.add(cart);
 	System.out.println("....Product added to Cart....");
 	}
@@ -37,10 +34,9 @@ public class Cartutility {
 	}
 	
 	//Decrease the inventory
-	Product p = ProductDetail.findProduct(cart.getProdid());
-		p.setInventoryQty( p.getInventoryQty() - cart.getQty());	
+	Product p = ProducDetail.findProduct(cart.getProdid());
+		p.setInventory( p.getInventory()- cart.getQty());	
 	}
 	
-	}
-	
+}
 }	

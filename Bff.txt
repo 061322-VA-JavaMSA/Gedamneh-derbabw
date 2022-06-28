@@ -1,0 +1,14 @@
+
+ Erik
+- His wife wants to learn the cello. 
+- He is a Star Wars fan but not of the sequels.
+- Been to every continet except Antartica.
+Glenn
+- Is from the Phillipines originally and came to the US 10 years ago.
+Adam 
+-has Web Development Degree and he has Confidence on Web Development.
+-He is Married
+Bryan
+- Graduated with a degree in Computer Science. 
+- Knows Python, C#, and C++.
+- Plays the guitar.

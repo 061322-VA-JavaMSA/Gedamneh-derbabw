@@ -13,6 +13,7 @@ public interface CustomerDAO {
     Customer retriveCustomerbyLName(String Lastname  );
     boolean updateCusomer(Customer c);
 	boolean deleteCustomerById(int custid);
+	User createCustomer(User u);
 
 	
 

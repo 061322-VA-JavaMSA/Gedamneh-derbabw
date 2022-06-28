@@ -1,5 +1,6 @@
 package com.revature;
 
+import java.sql.Date;
 import java.util.Objects;
 
 public class Customer {
@@ -7,12 +8,22 @@ public class Customer {
 	 private String  firstName;
      private String  lastName;
      private String  emailId;
+     private Date DOB;
      private String  password;
      private long phoneNo;
+	 private int employeeid;
 	
-	
+	public int getEmployeeid() {
+		return employeeid;
+	}
+	public void setEmployeeid(int employeeid) {
+		this.employeeid = employeeid;
+	}
 	public int getCustid() {
 		return custid;
+	}
+	public void setDOB(Date dOB) {
+		DOB = dOB;
 	}
 	public void setCustid(int customerid) {
 		this.custid = customerid;
@@ -105,8 +116,8 @@ public class Customer {
 	public String getEmailId() {
 		return emailId;
 	}
-	public void setEmailId(String emailId) {
-		this.emailId = emailId;
+	public void setEmailId(int i) {
+		this.emailId = i;
 	}
 	public String getPassword() {
 		return password;
@@ -114,11 +125,31 @@ public class Customer {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public long getPhoneNo() {
+	public int getPhoneNo() {
 		return phoneNo;
 	}
 	public void setPhoneNo(long phoneNo) {
 		this.phoneNo = phoneNo;
+	}
+	public Date getDOB() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public Date getDOB() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public Date getDOB() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public void setDOB(Date date) {
+		// TODO Auto-generated method stub
+		
+	}
+	public void setDOB(Date date) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	
