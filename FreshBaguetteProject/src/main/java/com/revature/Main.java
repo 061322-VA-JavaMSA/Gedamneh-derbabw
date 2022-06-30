@@ -29,8 +29,9 @@ public class Main {
 		label: while (true) {
 
 			List<Product> cart = new ArrayList<>();
-			System.out.println(".........Well Come to FreshBaguete Bakery.............");
-
+			System.out.println(".........WELL COME TO FRESHBAGUETTE BAKERY........................................");
+			System.out.println(".................................................................................");
+            System.out.println();
 			System.out.println("1: If You have an Account With us Please Login");
 			System.out.println("2: If You are a new Customer Please Sign Up");
 			String loginMenu = scan.nextLine();
@@ -44,7 +45,7 @@ public class Main {
 					User user = new AuthService().login(username, password);
 				} catch (LoginException e) {
 					// TODO Auto-generated catch block
-					System.out.println("User Not Found!");
+					System.out.println("User Not Found Please Enter Your Credential Correctly!");
 					continue;
 				}
 				break;
@@ -142,7 +143,7 @@ public class Main {
 				}
 
 				case "3": {
-					System.out.println("Thank you For Shopping With US !");
+					System.out.println(" Thank you For Shopping With US !");
 
 					System.exit(0);
 
