@@ -5,9 +5,9 @@ import java.util.Objects;
 public class Cart {
 
 	private int custid;
-	private int prodid;
+	private String prodid;
 	private int price;
-	private int qty;
+	private int Qty;
 	public int getCustid() {
 		return custid;
 	}
@@ -17,7 +17,7 @@ public class Cart {
 	public String getProdid() {
 		return prodid;
 	}
-	public void setProdid(int prodid) {
+	public void setProdid(String prodid) {
 		this.prodid = prodid;
 	}
 	public int getPrice() {
@@ -52,18 +52,21 @@ public class Cart {
 	public String toString() {
 		return "Cart [custid=" + custid + ", prodid=" + prodid + ", price=" + price + ", Qty=" + Qty + "]";
 	}
-	public Cart(Object object, int prodid, int price, int qty) {
+	public Cart(Object object, String prodid, int price, int qty) {
 		super();
 		this.custid = (int) object;
 		this.prodid = prodid;
 		this.price = price;
 		Qty = qty;
 	}
-	private int Qty;
+
 	public Cart() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
+	public Cart(int custid2, String prodID2, int productPrice, int inventory) {
+		// TODO Auto-generated constructor stub
+	}
+
 
 }

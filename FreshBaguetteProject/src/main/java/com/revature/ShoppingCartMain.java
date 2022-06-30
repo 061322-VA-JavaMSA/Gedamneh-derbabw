@@ -2,12 +2,14 @@ package com.revature;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.revature.exceptions.LoginException;
 import com.revature.models.Product;
 import com.revature.models.User;
 import com.revature.services.AuthService;
@@ -16,7 +18,7 @@ import com.revature.services.ProductService;
 import com.revature.services.TaskService;
 import com.revature.services.UserService;
 import com.revature.util.ConnectionUtil;
-
+import com.revature.Cartutility;
 public class ShoppingCartMain {
 
 	private static Logger log = LogManager.getLogger(ShoppingCartMain.class);
@@ -37,15 +39,19 @@ public class ShoppingCartMain {
 		cs = new CustomerService();
 		as = new AuthService();
 		us = new UserService();
-		String username = null;
-		int password = 0;
+		
 		System.out.println(".........Well Come to FreshBaguete Bakery.............");
 		System.out.println("Please enter username:");
-		username = scan.nextLine();
+		 String username = scan.nextLine();
 		System.out.println("Please enter password:");
-		password = scan.nextInt();
+		String password = scan.nextLine();
 
-		log.info(as.login(username, password));
+		try {
+			log.info(as.login(username, password));
+		} catch (LoginException e1) {
+			// TODO Auto-generated catch block
+			 System.out.println(" User is Not Found");
+		}
 
 		try {
 
@@ -104,140 +110,133 @@ public class ShoppingCartMain {
 //			
 //			
 
-			///////////////////////////////////////////////////
-			List<User> users = us.getUsers();
-			for (User u : users) {
-				System.out.println(u);
-			}
-			// System.out.println(" Inavalid User Name and Please PUt your credential
-			// Correctly ");
+		///////////////////////////////////////////////////
+//		List<User> users = us.getUsers();
+//		for (User u : users) {
+//			System.out.println(u);
+//		}
+		// System.out.println(" Inavalid User Name and Please PUt your credential
+		// Correctly ");
+//
+//		System.out.println("Create, username:");
+//		String uname = scan.nextLine();
+//		System.out.println("Create, password:");
+//		String pass = scan.nextLine();
+//		User userTBC = new User();
+//		userTBC.setUsername(uname);
+//		userTBC.setPassword(pass);
+//		log.info(us.createUser(userTBC));
+		System.out.println(" Please Enter Your choice ");
+		int choice = 0;
+		do {
 
-			System.out.println("Create, username:");
-			String uname = scan.nextLine();
-			System.out.println("Create, password:");
-			String pass = scan.nextLine();
-			User userTBC = new User();
-			userTBC.setUsername(uname);
-			userTBC.setPassword(pass);
-			log.info(us.createUser(userTBC));
+			System.out.println();
+			System.out.println(" 1.  Add Product to Cart ");
+			System.out.println(" 2.  View Cart Items ");
+			System.out.println(" 3.  Delete Cart items ");
+			System.out.println(" 4.  Exit ");
 			System.out.println(" Please Enter Your choice ");
-			int choice = 0;
-			 do {
 
-		    	  System.out.println();
-		          System.out.println(" 1.  Add Product to Cart ");
-		          System.out.println(" 2.  View Cart Items ") ;
-		          System.out.println(" 3.  Delete Cart items ");
-		          System.out.println(" 4.  Exit ")  ;
-		          System.out.println(" Please Enter Your choice ")  ;
+			choice = scan.nextInt();
+			switch (choice) {
+			case 1:
+				if (customer == null) {
+					readCustomerDetails();
 
-				  choice=scan.nextInt();
-		          switch (choice)
-		          {case 1:
-		        	  if(customer==null) {
-		        		  readCustomerDetails();
+				}
+				
+				showProduct();
+				System.out.println("Enter Product id");
 
-		        	  };
-		        	  showProduct() ;
-		        	  readProductDetails();
-		        	  addProductTocart();
-		          break;
-		          case 2:
-	              viewCartItems();
-	              break; 
+				prodid = scan.next();
+				System.out.println("Enter Quantity");
 
-	              case 3:
-	            	  deleteCartItems();
-	            	  break;
+				qty = scan.nextInt();
+		        
+				Cart cart =new Cart();
+				cart.setProdid(prodid);
+				cart.setQty(qty);
+				Cartutility.addProductToCart(cart);
+				break;
+			case 2:
+				viewCartItems();
+				break;
 
-	              default:
-	            	  System.out.println("Thank you for shopping!");
+			case 3:
+				deleteCartItems();
+				break;
 
-	            	  }
+			default:
+				System.out.println("Thank you for shopping!");
 
-
-
-		             }while(choice<4);
 			}
 
-		      public static void  CreateCartAndAddtoCartList(){
-
-	           Cart cart =new Cart(customer.getcustid(),prodid ,ProductDetail.getProductPrice(prodid) ,qty);
-
-	           Cartutility.addProductToCart(cart);
+		} while (choice < 4);
 	}
 
+	public static void CreateCartAndAddtoCartList() {
 
+	Cart cart =new Cart(customer.getCustid(),prodid ,ProductDetail.getProductPrice(prodid) ,qty);
 
+	 Cartutility.addProductToCart(cart);
+	}
 
+	public static void readProductDetails() {
+		System.out.println("Enter Product id");
 
+		prodid = scan.next();
+		System.out.println("Enter Quantity");
 
+		qty = scan.nextInt();
+        
+	}
 
-		    public static void readProductDetails(){
-			System.out.println("Enter Product id");
+	public static void readCustomerDetails() {
 
-			prodid=scan.next();
-			System.out.println("Enter Quantity");
+		customer = new Customer();
+		String custid = "";
+		String customerName = "";
+		String city = " ";
+		System.out.println("Please Enter Customer id");
+		custid = scan.next();
 
-			qty=scan.nextInt();
+		System.out.println(" Please Enter Customer Customer Name");
+		customerName = scan.next();
 
-		}
+		System.out.println("Enter Customer City");
+		city = scan.next();
 
+	}
 
+	public static void showProduct() {
 
+		
 
+		// p.getProdid().equals(prodID)
 
-		    public static void  readCustomerDetails(){
-
-			customer =new Customer(); 
-			String custid="";
-			String customerName="";
-			String city=" ";
-			System.out.println("Enter Customer id");
-			custid= scan.next();
-
-			System.out.println("Enter Customer Customer Name");
-			customerName= scan.next();
-
-			System.out.println("Enter Customer City");
-			city= scan.next();
-
-
-
-
-
-	      }	
-
-
-
-
-
-		    public static  void showProduct() {
-				 //List<Product> product = ps.getProduct();
-			      System.out.printf("%-8s%-15s%-8s%-12s%-8s","Prodid","ProductName","Price","Catagory","inventoryqty");
-			    //ProducDetail[] ProductList = null;
-			      System.out.println();
-			      System.out.println("------------------------------------------------------");
-				for(Product P : ProductDetail.ProductList ) {
-		System.out.printf("%-8s%-15s%-8s%-12s%-8s",P.getProdID(),P.getProdname(),"$"+P.getPrice(),P.getCatagory(),P.getInventoryQty());
+		// List<Product> product = ps.getProduct();
+		System.out.printf("%-8s%-15s%-8s%-12s%-8s", "Prodid", "ProductName", "Price", "Catagory", "inventoryqty");
+		// ProducDetail[] ProductList = null;
 		System.out.println();
-			    }
-
-		    }
-		private static void deleteCartItems() {
-			System.out.println("---- Deleting cart items------");
-
-		}
-		private static void viewCartItems() {
-			System.out.println("---- Viewing cart items-----");
-
-
-		}
-		private static void addProductTocart() {
-			System.out.println("--- Adding Product to cart---");
-
+		System.out.println("------------------------------------------------------");
+		for (Product P : ProductDetail.productList) {
+			System.out.printf("%-8s%-15s%-8s%-12s%-8s", P.getProdid(), P.getProdname(), "$" + P.getPrice(),
+					P.getCatagory(), P.getInventoryqty());
+			System.out.println();
 		}
 
+	}
 
-			} 
+	private static void deleteCartItems() {
+		System.out.println("---- Deleting cart items------");
 
+	}
+
+	private static void viewCartItems() {
+		System.out.println("---- Viewing cart items-----");
+
+	}
+
+	
+
+}

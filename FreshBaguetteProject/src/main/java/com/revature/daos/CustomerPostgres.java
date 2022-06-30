@@ -26,4 +26,28 @@ public class CustomerPostgres implements CustomerDAO {
 		return null;
 	}
 
+	@Override
+	public Customer retrieveCustomerById(int custid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Customer retriveCustomerbyLName(String Lastname) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean updateCusomer(Customer c) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean deleteCustomerById(int custid) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

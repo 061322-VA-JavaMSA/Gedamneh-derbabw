@@ -3,8 +3,6 @@ package com.revature;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.revature.models.Product;
-
 public class ProducDetail {
 	
 	
@@ -63,9 +61,9 @@ public class ProducDetail {
 	  }
 
 
-public int getProdID() {
+public String getProdID() {
 	// TODO Auto-generated method stub
-	return 0;
+	return getProdID();
 }
 
 public int getProductPrice() {
@@ -81,6 +79,11 @@ public int getpCatagory() {
 public int getInventory() {
 	// TODO Auto-generated method stub
 	return 0;
+}
+
+public static String getProductName(boolean equals) {
+	// TODO Auto-generated method stub
+	return null;
 }
 
 

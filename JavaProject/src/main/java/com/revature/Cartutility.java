@@ -13,7 +13,7 @@ public class Cartutility {
 	for(Cart c : cartList) {
 	
 	index++;
-	if( c.getProdid().equals(cart.getProdid())) {
+	if(c.getProdid().equals(cart.getProdid())) {
 		
 		
 		temp = c;
@@ -31,11 +31,13 @@ if(temp==null) {
 		temp.setQty(temp.getQty()+cart.getQty());
 		cartList.set(index,temp);
 		System.out.println("......Cart Updated......");
+		
+		//Decrease the inventory
+		Product p = ProducDetail.findProduct(cart.getProdid());
+			p.setInventory( p.getInventory()- cart.getQty());	
 	}
 	
-	//Decrease the inventory
-	Product p = ProducDetail.findProduct(cart.getProdid());
-		p.setInventory( p.getInventory()- cart.getQty());	
+	
 	}
 	
 }

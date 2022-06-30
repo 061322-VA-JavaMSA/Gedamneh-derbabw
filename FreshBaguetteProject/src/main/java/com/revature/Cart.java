@@ -52,7 +52,7 @@ public class Cart {
 	public String toString() {
 		return "Cart [custid=" + custid + ", prodid=" + prodid + ", price=" + price + ", Qty=" + Qty + "]";
 	}
-	public Cart(String custid, String prodid, int price, int qty) {
+	public Cart(int custid, String prodid, int price, int qty) {
 		super();
 		this.custid = custid;
 		this.prodid = prodid;

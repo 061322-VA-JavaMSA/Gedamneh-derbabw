@@ -1,17 +1,16 @@
 package com.revature;
 
 import java.util.Scanner;
-
-import com.revature.Product;
 public class Main {
 	
    private static final String Customer = null;
+private static final Object Prodid = null;
 public static Scanner scan =new Scanner(System.in);
 	public static void main(String[] args) {
 	
 		int choice = 0;
 		 do {
-
+			 showProduct() ;
 	   	  System.out.println();
 	         System.out.println(" 1.  Add Product to Cart ");
 	         System.out.println(" 2.  View Cart Items ") ;
@@ -22,11 +21,7 @@ public static Scanner scan =new Scanner(System.in);
 			  choice=scan.nextInt();
 	         switch (choice)
 	         {case 1:
-        	 if(Customer==null) {
-	       	  readCustomerDetails();
-
-       	  };
-	       	  showProduct() ;
+        	
 	       	  readProductDetails();
 	       	  CreateCartAndAddtoCartList();
 	         break;
@@ -68,7 +63,9 @@ System.out.println();
 	 public static void  CreateCartAndAddtoCartList(){
           ProducDetail p= new ProducDetail();
           Customer customer = new Customer();
-         Cart cart =new Cart(customer.getCustid(),p.getProdID() ,p.getProductPrice() ,p.getInventory());
+          Cart c =new Cart();
+		//String prodid = ;
+		Cart cart =new  Cart(customer.getCustid(), c.getProdid()  ,p.getProductPrice() ,p.getInventory());
 
          Cartutility.addProductToCart(cart);
 }
@@ -128,9 +125,21 @@ System.out.println();
 	   // }
 	private static void deleteCartItems() {
 		System.out.println("---- Deleting cart items------");
-
+for(Cart c : Cartutility.cartList ) {
+			
+			int price = ProducDetail.getProductPrice(c.getProdid());
+			String Prodname=ProducDetail.getProductName(c.getProdid());
+		System.out.println(Prodname+" -" + c.getPrice()+ "-" +c.getQty()+"-"+(c.getQty()*price));
+		
+			
+			}
+		
 	}
 	private static void viewCartItems() {
+		
+		
+		
+	
 		System.out.println("---- Viewing cart items-----");
 		
 		for(Cart c : Cartutility.cartList ) {

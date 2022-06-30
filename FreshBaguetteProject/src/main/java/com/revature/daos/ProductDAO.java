@@ -12,7 +12,7 @@ public interface ProductDAO {
 
 	Product retrieveproductById(int id);
 
-	List<Product> retrieveProduct();
+	//List<Product> retrieveProduct();
 
 	boolean deleteProductById(int id);
 
