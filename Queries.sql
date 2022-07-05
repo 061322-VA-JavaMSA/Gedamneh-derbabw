@@ -48,7 +48,13 @@ create table Employee(
 employeeid serial primary key not null ,
 Fname varchar(10),
 Lname varchar(10),
-DOB date);
+DOB date,
+
+);
+
+alter table employee 
+add  Offerid int references Offers(Offerid);
+
 
   drop  table if exists Product ;
   create table if not exists Product( prodid serial primary key ,prodname varchar(20),catagory varchar(20), price int ,Qty int );
@@ -137,9 +143,29 @@ prodid int ,
 
 
 
+drop table if exists Offers;
+create table Offers(
+Offerid  serial primary key not null,
+prodid int references product(prodid),
+customerid int  references  customer(customerid),
+status varchar(20)
+);
 
 
+drop table if exists members;
+create table if not exists members(
+id serial primary key,
+account_id serial,
+user_name varchar(30) unique not null,
+pass_word varchar(30) not null,
+full_name varchar(30),
+address varchar(30) not null,
+phone_number varchar(40),
+is_staff boolean,
+fee varchar(4),
+offerid int  references offers(offerid)
 
+);
 
 
 
